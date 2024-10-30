@@ -1,4 +1,5 @@
 import 'package:empiricus/features/investments/domain/entities/investment_entity.dart';
+import 'package:empiricus/l10n/translate.dart';
 import 'package:empiricus/shared/theme/app_colors.dart';
 import 'package:empiricus/shared/theme/app_dimens.dart';
 import 'package:empiricus/shared/theme/typography/typography.dart';
@@ -19,7 +20,7 @@ class DescriptionAuthorsWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Autores").bodyMediumSemiBold(),
+          Text(Translate.strings.authors).bodyMediumSemiBold(),
           const SizedBox(height: AppDimens.micro),
           ListView.separated(
             shrinkWrap: true,

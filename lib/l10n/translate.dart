@@ -18,4 +18,8 @@ abstract class AppStrings {
   String get password;
 
   String get investments;
+
+  String get authors;
+
+  String get features;
 }

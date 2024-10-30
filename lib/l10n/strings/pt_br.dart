@@ -18,4 +18,10 @@ class AppPtBR implements AppStrings {
 
   @override
   String get investments => "Investimentos";
+
+  @override
+  String get authors => "Autores";
+
+  @override
+  String get features => "Funcionalidades";
 }
