@@ -1,6 +1,8 @@
 import 'package:empiricus/core/error/base_failure.dart';
+import 'package:empiricus/features/investments/domain/entities/investment_entity.dart';
 import 'package:empiricus/features/investments/domain/entities/investment_list_entity.dart';
 import 'package:empiricus/features/investments/domain/usecases/investment_usecase.dart';
+import 'package:empiricus/l10n/translate.dart';
 import 'package:empiricus/shared/widgets/snackbar_global.dart';
 import 'package:flutter/foundation.dart';
 
@@ -14,7 +16,7 @@ class InvestmentController with ChangeNotifier {
   ValueNotifier<bool> isLoading = ValueNotifier(false);
   InvestmentListEntity investmentList = InvestmentListEntity.empty();
 
-  void _getInvestments() async {
+  Future<void> _getInvestments() async {
     isLoading.value = true;
     await _getInvestmentsUseCase();
     isLoading.value = false;
@@ -34,5 +36,15 @@ class InvestmentController with ChangeNotifier {
   void ifError(BaseFailure error) {
     SnackbarGlobal.show(error.message);
     isLoading.value = false;
+  }
+
+  Future<InvestmentEntity> getInvestmentBySlug(String slug) async {
+    try {
+      await _getInvestments();
+      return investmentList.investments.firstWhere((element) => element.identifier.slug == slug);
+    } catch (e) {
+      SnackbarGlobal.show(Translate.strings.notFound);
+      return InvestmentEntity.empty();
+    }
   }
 }

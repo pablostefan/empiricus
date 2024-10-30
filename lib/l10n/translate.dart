@@ -22,4 +22,6 @@ abstract class AppStrings {
   String get authors;
 
   String get features;
+
+  String get notFound;
 }

@@ -24,4 +24,7 @@ class AppPtBR implements AppStrings {
 
   @override
   String get features => "Funcionalidades";
+
+  @override
+  String get notFound => "Não encontrado";
 }

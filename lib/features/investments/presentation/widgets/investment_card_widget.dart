@@ -14,7 +14,9 @@ class InvestmentCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => AppRoutes.router.pushNamed(RoutName.description, extra: investment),
+      onTap: () {
+        AppRoutes.router.pushNamed(RoutName.localDescription, extra: investment);
+      },
       child: Container(
         height: 150,
         color: AppColors.monoWhite,

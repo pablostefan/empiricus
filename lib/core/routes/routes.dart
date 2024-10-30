@@ -12,6 +12,10 @@ abstract class AppRoutes {
     GoRoute(
         name: RoutName.description,
         path: RoutName.description,
-        builder: (context, state) => DescriptionPage(investment: state.extra as InvestmentEntity))
+        builder: (context, state) => DescriptionPage(slug: state.pathParameters['slug'])),
+    GoRoute(
+        name: RoutName.localDescription,
+        path: RoutName.localDescription,
+        builder: (context, state) => DescriptionPage(investment: state.extra as InvestmentEntity)),
   ]);
 }

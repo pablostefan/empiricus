@@ -23,6 +23,16 @@ class InvestmentEntity {
     required this.features,
   });
 
+  InvestmentEntity.empty()
+      : identifier = IdentifierEntity.empty(),
+        name = 'Nome',
+        shortDescription = 'Descrição curta',
+        description = 'Descrição',
+        imageLarge = '',
+        imageSmall = '',
+        authors = [],
+        features = [];
+
   factory InvestmentEntity.fromJson(Map<String, dynamic> json) {
     return InvestmentEntity(
       identifier: IdentifierEntity.fromJson(json['identifier']),

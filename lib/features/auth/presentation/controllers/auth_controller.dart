@@ -31,9 +31,7 @@ class AuthController {
     }
   }
 
-  void _ifError(BaseFailure error) {
-    print('Error: ${error.message}');
-  }
+  void _ifError(BaseFailure error) => SnackbarGlobal.show(error.message);
 
   void changeObscurePassword() => obscurePassword.value = !obscurePassword.value;
 }

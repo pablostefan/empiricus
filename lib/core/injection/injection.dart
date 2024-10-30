@@ -33,7 +33,7 @@ class Injection {
     getIt.registerLazySingleton<LoginRepository>(() => LoginRepositoryImp(getIt()));
     getIt.registerLazySingleton<AuthUseCase>(() => AuthUseCaseImp(getIt()));
 
-    getIt.registerFactory<InvestmentController>(() => InvestmentController(getIt()));
+    getIt.registerLazySingleton<InvestmentController>(() => InvestmentController(getIt()));
     getIt.registerFactory<AuthController>(() => AuthController(getIt()));
   }
 }
