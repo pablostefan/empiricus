@@ -7,7 +7,7 @@ e MVC para o gerenciamento de estado.
 
 Para logar no aplicativo, basta apenas utilizar as informações abaixo:
 
-- **E-mail**: empiricus@gmai.com
+- **E-mail**: empiricus@gmail.com
 - **Senha**: empiricus
 
 Esses dados estão mockados na aplicação.

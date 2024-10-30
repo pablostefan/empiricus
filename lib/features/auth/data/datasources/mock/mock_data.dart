@@ -1,5 +1,5 @@
 abstract class MockLoginData {
-  static const String _email = "empiricus@gmai.com";
+  static const String _email = "empiricus@gmail.com";
   static const String _password = "empiricus";
 
   static bool _validateEmail(String email) => email == _email;
