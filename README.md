@@ -3,14 +3,23 @@
 Este é um aplicativo de de material da Empiricus feito com Flutter, utilizando os pricipios do Clean Architecture, SOLID
 e MVC para o gerenciamento de estado.
 
-## Informações Para Acesso
+## Informações Para Login
 
-Para acessar o aplicativo, basta apenas utilizar as informações abaixo:
+Para logar no aplicativo, basta apenas utilizar as informações abaixo:
 
 - **E-mail**: empiricus@gmai.com
 - **Senha**: empiricus
 
 Esses dados estão mockados na aplicação.
+
+## Splash Screen
+
+As telas de splash screen foram feitas de forma nativa, sem a utilização de plugins.
+
+## Login
+
+O login foi feito de forma mokada, sem a utilização de um backend, no caso de sucesso, o usuário é redirecionado para a
+tela de listagem de artigos de investimento, caso contrário, é exibido um erro.
 
 ## Estrutura do Projeto
 
