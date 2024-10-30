@@ -27,4 +27,10 @@ class AppPtBR implements AppStrings {
 
   @override
   String get notFound => "Não encontrado";
+
+  @override
+  String get pageNotFound => "Página não encontrada";
+
+  @override
+  String get goToLogin => "Ir para o login";
 }

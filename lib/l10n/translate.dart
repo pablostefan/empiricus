@@ -24,4 +24,8 @@ abstract class AppStrings {
   String get features;
 
   String get notFound;
+
+  String get pageNotFound;
+
+  String get goToLogin;
 }

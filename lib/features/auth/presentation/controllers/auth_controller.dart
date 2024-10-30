@@ -1,5 +1,5 @@
 import 'package:empiricus/core/error/base_failure.dart';
-import 'package:empiricus/core/routes/rout_name.dart';
+import 'package:empiricus/core/routes/route_name.dart';
 import 'package:empiricus/core/routes/routes.dart';
 import 'package:empiricus/shared/widgets/snackbar_global.dart';
 import 'package:empiricus/features/auth/domain/entities/login_entity.dart';
@@ -25,7 +25,7 @@ class AuthController {
 
   void _ifResult(LoginEntity result) {
     if (result.success) {
-      AppRoutes.router.goNamed(RoutName.home);
+      AppRoutes.router.goNamed(RouteName.home);
     } else {
       SnackbarGlobal.show(result.message);
     }
