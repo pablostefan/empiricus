@@ -23,6 +23,7 @@ class _AppWidgetState extends State<AppWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'Empiricus',
+        debugShowCheckedModeBanner: false,
         scaffoldMessengerKey: SnackbarGlobal.key,
         routes: AppRoutes.routes,
         initialRoute: RoutName.login,
