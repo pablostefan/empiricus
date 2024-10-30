@@ -21,6 +21,10 @@ As telas de splash screen foram feitas de forma nativa, sem a utilização de pl
 O login foi feito de forma mokada, sem a utilização de um backend, no caso de sucesso, o usuário é redirecionado para a
 tela de listagem de artigos de investimento, caso contrário, é exibido um erro.
 
+## Icone do Aplicativo
+
+O ícone do aplicativo foi alterado para um ícone customizado, com a logo da Empiricus.
+
 ## Estrutura do Projeto
 
 O projeto segue uma estrutura organizada em camadas, de acordo com os princípios do Clean Architecture.
