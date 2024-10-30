@@ -64,8 +64,11 @@ No lugar de `slug`, coloque o slug do artigo de investimento.
 
 Para utilizar o deep link, é necessário que o aplicativo esteja instalado no dispositivo, no android é necessário
 configurar abrir por um deep link.
-![Configuração Android](assets/images/Screenshot_20241030_113058.png)
-![Configuração Android](assets/images/Screenshot_20241030_113113.png)
+
+<p align="center">
+  <img src="assets/images/Screenshot_20241030_113058.png" alt="Configuração Android" width="45%" />
+  <img src="assets/images/Screenshot_20241030_113113.png" alt="Configuração Android" width="45%" />
+</p>
 
 ## Splash Screen
 
