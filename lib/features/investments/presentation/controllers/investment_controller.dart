@@ -49,7 +49,7 @@ class InvestmentController with ChangeNotifier {
     }
   }
 
-  void setInvestment({required InvestmentEntity? investmentEntity, required String slug}) async {
+  Future<void> setInvestment({required InvestmentEntity? investmentEntity, required String slug}) async {
     investment = investmentEntity ?? await _getInvestmentBySlug(slug);
     notifyListeners();
   }

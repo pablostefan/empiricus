@@ -7,6 +7,7 @@ import 'package:empiricus/features/investments/presentation/widgets/image_error_
 import 'package:empiricus/shared/theme/app_colors.dart';
 import 'package:empiricus/shared/theme/app_opacity.dart';
 import 'package:empiricus/shared/theme/typography/typography.dart';
+import 'package:empiricus/shared/widgets/loading_modal_progress_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -22,12 +23,6 @@ class DescriptionPage extends StatefulWidget {
 
 class _DescriptionPageState extends State<DescriptionPage> {
   final InvestmentController _controller = GetIt.I.get<InvestmentController>();
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _controller.setInvestment(investmentEntity: widget.investment, slug: widget.slug ?? '');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,31 +41,38 @@ class _DescriptionPageState extends State<DescriptionPage> {
           },
         ),
       ),
-      body: ListenableBuilder(
-        listenable: _controller,
-        builder: (_, __) {
-          return CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                child: Image.network(
-                  _controller.investment.imageLarge,
-                  errorBuilder: (_, __, ___) => const ImageErrorWidget(),
-                ),
+      body: FutureBuilder(
+          future: _controller.setInvestment(investmentEntity: widget.investment, slug: widget.slug ?? ''),
+          builder: (context, snapshot) {
+            return LoadingModalProgressWidget(
+              isLoading: snapshot.connectionState == ConnectionState.waiting,
+              child: ListenableBuilder(
+                listenable: _controller,
+                builder: (_, __) {
+                  return CustomScrollView(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: Image.network(
+                          _controller.investment.imageLarge,
+                          errorBuilder: (_, __, ___) => const ImageErrorWidget(),
+                        ),
+                      ),
+                      SliverToBoxAdapter(child: DescriptionWidget(investment: _controller.investment)),
+                      SliverToBoxAdapter(child: DescriptionAuthorsWidget(investment: _controller.investment)),
+                      SliverSafeArea(
+                        top: false,
+                        right: false,
+                        left: false,
+                        sliver: SliverToBoxAdapter(
+                          child: DescriptionFeaturesWidget(investment: _controller.investment),
+                        ),
+                      ),
+                    ],
+                  );
+                },
               ),
-              SliverToBoxAdapter(child: DescriptionWidget(investment: _controller.investment)),
-              SliverToBoxAdapter(child: DescriptionAuthorsWidget(investment: _controller.investment)),
-              SliverSafeArea(
-                top: false,
-                right: false,
-                left: false,
-                sliver: SliverToBoxAdapter(
-                  child: DescriptionFeaturesWidget(investment: _controller.investment),
-                ),
-              ),
-            ],
-          );
-        },
-      ),
+            );
+          }),
     );
   }
 }
