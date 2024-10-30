@@ -1,5 +1,4 @@
 import 'package:empiricus/core/injection/injection.dart';
-import 'package:empiricus/core/routes/rout_name.dart';
 import 'package:empiricus/core/routes/routes.dart';
 import 'package:empiricus/shared/widgets/snackbar_global.dart';
 import 'package:empiricus/shared/theme/app_colors.dart';
@@ -21,13 +20,11 @@ class _AppWidgetState extends State<AppWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
         title: 'Empiricus',
         debugShowCheckedModeBanner: false,
         scaffoldMessengerKey: SnackbarGlobal.key,
-        routes: AppRoutes.routes,
-        initialRoute: RoutName.login,
-        navigatorKey: AppRoutes.navigatorKey,
+        routerConfig: AppRoutes.router,
         theme: ThemeData(scaffoldBackgroundColor: AppColors.primaryGray, useMaterial3: true));
   }
 }

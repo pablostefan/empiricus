@@ -25,7 +25,7 @@ class AuthController {
 
   void _ifResult(LoginEntity result) {
     if (result.success) {
-      AppRoutes.pushReplacementNamed(RoutName.home);
+      AppRoutes.router.goNamed(RoutName.home);
     } else {
       SnackbarGlobal.show(result.message);
     }

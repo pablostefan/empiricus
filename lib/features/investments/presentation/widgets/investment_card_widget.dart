@@ -1,4 +1,5 @@
 import 'package:empiricus/core/routes/rout_name.dart';
+import 'package:empiricus/core/routes/routes.dart';
 import 'package:empiricus/features/investments/domain/entities/investment_entity.dart';
 import 'package:empiricus/shared/theme/app_colors.dart';
 import 'package:empiricus/shared/theme/app_dimens.dart';
@@ -13,7 +14,7 @@ class InvestmentCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.of(context).pushNamed(RoutName.description, arguments: investment),
+      onTap: () => AppRoutes.router.pushNamed(RoutName.description, extra: investment),
       child: Container(
         height: 150,
         color: AppColors.monoWhite,
