@@ -1,6 +1,6 @@
 # Empiricus
 
-Este é um aplicativo de de material da Empiricus feito com Flutter, utilizando os pricipios do Clean Architecture, SOLID
+Este é um aplicativo de material da Empiricus feito com Flutter, utilizando os pricipios do Clean Architecture, SOLID
 e MVC para o gerenciamento de estado.
 
 ## Informações Para Login
