@@ -20,7 +20,7 @@ class AuthTextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
-      cursorColor: AppColors.primary,
+      cursorColor: AppColors.tertiaryGray,
       obscureText: obscureText,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
@@ -30,9 +30,9 @@ class AuthTextFieldWidget extends StatelessWidget {
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppDimens.micro),
-          borderSide: BorderSide(color: AppColors.quaternaryGray),
+          borderSide: BorderSide(color: AppColors.secondaryGray),
         ),
-        labelStyle: TextStyle(color: AppColors.primary),
+        labelStyle: TextStyle(color: AppColors.tertiaryGray),
         labelText: labelText,
       ),
     );

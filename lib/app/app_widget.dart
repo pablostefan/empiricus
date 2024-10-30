@@ -27,6 +27,6 @@ class _AppWidgetState extends State<AppWidget> {
         routes: AppRoutes.routes,
         initialRoute: RoutName.login,
         navigatorKey: AppRoutes.navigatorKey,
-        theme: ThemeData(scaffoldBackgroundColor: AppColors.secondaryGray, useMaterial3: true));
+        theme: ThemeData(scaffoldBackgroundColor: AppColors.primaryGray, useMaterial3: true));
   }
 }
