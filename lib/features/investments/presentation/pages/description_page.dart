@@ -1,3 +1,5 @@
+import 'package:empiricus/core/routes/rout_name.dart';
+import 'package:empiricus/core/routes/routes.dart';
 import 'package:empiricus/features/investments/domain/entities/investment_entity.dart';
 import 'package:empiricus/features/investments/presentation/controllers/investment_controller.dart';
 import 'package:empiricus/features/investments/presentation/widgets/description_authors_widget.dart';
@@ -43,6 +45,10 @@ class _DescriptionPageState extends State<DescriptionPage> {
         centerTitle: true,
         iconTheme: const IconThemeData(color: AppColors.monoWhite),
         backgroundColor: AppColors.monoBlack.withOpacity(AppOpacity.oneEighth),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => AppRoutes.router.pushNamed(RoutName.home),
+        ),
         title: FittedBox(
           fit: BoxFit.fitWidth,
           child: Text(_investment.name).bodyLargeSemiBold().color(AppColors.monoWhite),

@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        automaticallyImplyLeading: false,
         backgroundColor: AppColors.monoBlack.withOpacity(AppOpacity.oneEighth),
         title: Text(Translate.strings.investments).bodyLargeSemiBold().color(AppColors.monoWhite),
       ),
