@@ -8,11 +8,12 @@ import 'package:go_router/go_router.dart';
 abstract class AppRoutes {
   static final router = GoRouter(initialLocation: '/', routes: [
     GoRoute(name: RoutName.login, path: RoutName.login, builder: (context, state) => const LoginPage()),
-    GoRoute(name: RoutName.home, path: RoutName.home, builder: (context, state) => const HomePage()),
-    GoRoute(
-        name: RoutName.description,
-        path: RoutName.description,
-        builder: (context, state) => DescriptionPage(slug: state.pathParameters['slug'])),
+    GoRoute(name: RoutName.home, path: RoutName.home, builder: (context, state) => const HomePage(), routes: [
+      GoRoute(
+          name: RoutName.description,
+          path: RoutName.description,
+          builder: (context, state) => DescriptionPage(slug: state.pathParameters['slug'])),
+    ]),
     GoRoute(
         name: RoutName.localDescription,
         path: RoutName.localDescription,

@@ -15,6 +15,7 @@ class InvestmentController with ChangeNotifier {
 
   ValueNotifier<bool> isLoading = ValueNotifier(false);
   InvestmentListEntity investmentList = InvestmentListEntity.empty();
+  InvestmentEntity investment = InvestmentEntity.empty();
 
   Future<void> _getInvestments() async {
     isLoading.value = true;
@@ -38,13 +39,18 @@ class InvestmentController with ChangeNotifier {
     isLoading.value = false;
   }
 
-  Future<InvestmentEntity> getInvestmentBySlug(String slug) async {
+  Future<InvestmentEntity> _getInvestmentBySlug(String slug) async {
     try {
-      await _getInvestments();
+      await _getInvestmentsUseCase();
       return investmentList.investments.firstWhere((element) => element.identifier.slug == slug);
     } catch (e) {
       SnackbarGlobal.show(Translate.strings.notFound);
       return InvestmentEntity.empty();
     }
+  }
+
+  void setInvestment({required InvestmentEntity? investmentEntity, required String slug}) async {
+    investment = investmentEntity ?? await _getInvestmentBySlug(slug);
+    notifyListeners();
   }
 }

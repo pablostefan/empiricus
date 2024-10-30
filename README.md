@@ -12,6 +12,54 @@ Para logar no aplicativo, basta apenas utilizar as informações abaixo:
 
 Esses dados estão mockados na aplicação.
 
+## Deep Link
+
+O aplicativo possui um deep link para abrir qualquer telas do aplicativo, basta apenas utilizar os seguintes comandos:
+
+### Android
+
+#### login
+
+```plaintext
+adb shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "https://empiricus.com/"'
+```
+
+#### home
+
+```plaintext
+adb shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "https://empiricus.com/home"'
+```
+
+#### description
+
+```plaintext
+adb shell 'am start -W -a android.intent.action.VIEW -c android.intent.category.BROWSABLE -d "https://empiricus.com/home/description/slug"'
+```
+
+No lugar de `slug`, coloque o slug do artigo de investimento.
+
+### iOS
+
+#### login
+
+```plaintext
+/usr/bin/xcrun simctl openurl booted "applinks://empiricus.com/" 
+```
+
+#### home
+
+```plaintext
+/usr/bin/xcrun simctl openurl booted "applinks://empiricus.com/home" 
+```
+
+#### description
+
+```plaintext
+/usr/bin/xcrun simctl openurl booted "applinks://empiricus.com/home/description/slug" 
+```
+
+No lugar de `slug`, coloque o slug do artigo de investimento.
+
 ## Splash Screen
 
 As telas de splash screen foram feitas de forma nativa, sem a utilização de plugins.

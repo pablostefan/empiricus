@@ -25,7 +25,7 @@ class SnackBarWidget extends SnackBar {
           behavior: SnackBarBehavior.floating,
           duration: const Duration(seconds: 2),
           showCloseIcon: true,
-          margin: const EdgeInsets.only(right: AppDimens.xxxs, left: AppDimens.xxxs),
+          margin: const EdgeInsets.only(right: AppDimens.xxxs, left: AppDimens.xxxs, bottom: AppDimens.xxxs),
           content: Row(
             children: [
               Icon(type.icon, color: AppColors.monoWhite),

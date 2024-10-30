@@ -1,5 +1,3 @@
-import 'package:empiricus/core/routes/rout_name.dart';
-import 'package:empiricus/core/routes/routes.dart';
 import 'package:empiricus/features/investments/domain/entities/investment_entity.dart';
 import 'package:empiricus/features/investments/presentation/controllers/investment_controller.dart';
 import 'package:empiricus/features/investments/presentation/widgets/description_authors_widget.dart';
@@ -25,17 +23,10 @@ class DescriptionPage extends StatefulWidget {
 class _DescriptionPageState extends State<DescriptionPage> {
   final InvestmentController _controller = GetIt.I.get<InvestmentController>();
 
-  InvestmentEntity _investment = InvestmentEntity.empty();
-
   @override
-  void initState() {
-    super.initState();
-    _setInvestment();
-  }
-
-  void _setInvestment() async {
-    var investment = widget.investment ?? await _controller.getInvestmentBySlug(widget.slug ?? '');
-    setState(() => _investment = investment);
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _controller.setInvestment(investmentEntity: widget.investment, slug: widget.slug ?? '');
   }
 
   @override
@@ -45,30 +36,40 @@ class _DescriptionPageState extends State<DescriptionPage> {
         centerTitle: true,
         iconTheme: const IconThemeData(color: AppColors.monoWhite),
         backgroundColor: AppColors.monoBlack.withOpacity(AppOpacity.oneEighth),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => AppRoutes.router.pushNamed(RoutName.home),
-        ),
-        title: FittedBox(
-          fit: BoxFit.fitWidth,
-          child: Text(_investment.name).bodyLargeSemiBold().color(AppColors.monoWhite),
+        title: ListenableBuilder(
+          listenable: _controller,
+          builder: (_, __) {
+            return FittedBox(
+              fit: BoxFit.fitWidth,
+              child: Text(_controller.investment.name).bodyLargeSemiBold().color(AppColors.monoWhite),
+            );
+          },
         ),
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-              child: Image.network(_investment.imageLarge, errorBuilder: (_, __, ___) => const ImageErrorWidget())),
-          SliverToBoxAdapter(child: DescriptionWidget(investment: _investment)),
-          SliverToBoxAdapter(child: DescriptionAuthorsWidget(investment: _investment)),
-          SliverSafeArea(
-            top: false,
-            right: false,
-            left: false,
-            sliver: SliverToBoxAdapter(
-              child: DescriptionFeaturesWidget(investment: _investment),
-            ),
-          ),
-        ],
+      body: ListenableBuilder(
+        listenable: _controller,
+        builder: (_, __) {
+          return CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Image.network(
+                  _controller.investment.imageLarge,
+                  errorBuilder: (_, __, ___) => const ImageErrorWidget(),
+                ),
+              ),
+              SliverToBoxAdapter(child: DescriptionWidget(investment: _controller.investment)),
+              SliverToBoxAdapter(child: DescriptionAuthorsWidget(investment: _controller.investment)),
+              SliverSafeArea(
+                top: false,
+                right: false,
+                left: false,
+                sliver: SliverToBoxAdapter(
+                  child: DescriptionFeaturesWidget(investment: _controller.investment),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
