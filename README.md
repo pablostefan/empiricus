@@ -1,7 +1,7 @@
 # Empiricus
 
-Este é um aplicativo de de material da Empiricus feito com Flutter, utilizando os pricipios do Clean Architecture e MVC
-para o gerenciamento de estado.
+Este é um aplicativo de de material da Empiricus feito com Flutter, utilizando os pricipios do Clean Architecture, SOLID
+e MVC para o gerenciamento de estado.
 
 ## Informações Para Acesso
 
@@ -14,26 +14,11 @@ Esses dados estão mockados na aplicação.
 
 ## Estrutura do Projeto
 
-O projeto segue uma estrutura organizada em camadas.
-
-As principais pastas e componentes são:
-
-### lib
-
-- **app**: Contém o `AppWidget`, que é o ponto de entrada do aplicativo.
-- **core**: Responsável por recursos compartilhados em todo o projeto, incluindo:
-    - **infra**:
-        - `http`: Serviço HTTP para interações de rede.
-    - **utils**: Utilitários de uso geral, como routes, APIs e ResultState.
-    - **error**: Classes e interfaces para o tratamento de erros e falhas.
-    - **injection**: Configuração de injeção de dependência.
-- **features**: Contém o módulo de dos artigos de investimentos. Está organizado em três camadas:
-    - **Apresentação (`presentation`)**: Inclui páginas, controladores e widgets.
-    - **Dados (`data`)**: Camada de dados.
-    - **Domínio (`domain`)**: Inclui as entidades e os casos de uso.
+O projeto segue uma estrutura organizada em camadas, de acordo com os princípios do Clean Architecture.
 
 ## Funcionalidades
 
+- **Login**: Realiza a autenticação do usuário de forma mokada.
 - **Listagem de Artigos de Investimento**: Exibe uma lista de artigos de investimento.
 - **Ver detalhes**: Mostra os detalhes mais especificos de cada um dos artigos de investimento.
 
