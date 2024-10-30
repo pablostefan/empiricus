@@ -71,17 +71,19 @@ lib/
 ├── app/                         # Ponto de entrada do aplicativo
 ├── core/                        # Recursos compartilhados e infraestrutura
 │   ├── error/                   # Tratamento de erros e falhas
-│   ├── infra/
+│   ├── infra/                   # Infraestrutura
 │   │   └── http/                # Serviços HTTP
 │   ├── utils/                   # Utilitários diversos
 │   └── injection/               # Injeção de dependências
-└── features/
-    └── auth/                    # Módulo de autenticação
-    │   ├── data/                # Camada de dados
-    │   ├── domain/              # Camada de domínio
-    │   └── presentation/        # Camada de apresentação
-    └── investments/             # Módulo de investimentos
-        ├── data/                # Camada de dados
-        ├── domain/              # Camada de domínio
-        └── presentation/        # Camada de apresentação
+└── features/                    # Módulos do aplicativo
+│   └── auth/                    # Módulo de autenticação
+│   │   ├── data/                # Camada de dados
+│   │   ├── domain/              # Camada de domínio
+│   │   └── presentation/        # Camada de apresentação
+│   └── investments/             # Módulo de investimentos
+│       ├── data/                # Camada de dados
+│       ├── domain/              # Camada de domínio
+│       └── presentation/        # Camada de apresentação
+└── l10n/                        # String internacionalizadas
+└── shared/                      # Recursos compartilhados
 ```
